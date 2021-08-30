@@ -63,11 +63,13 @@ attributes:
     value: 1
     help: |
           **_Checking this box will create a desktop folder unique to this job_**
-  centos_version: <%= defined?(@centos_version) ? @centos_version : '/n/singularity_images/Academic-cluster/Tools/remote-desktop/remote_desktop_082021.sif' %>
+  centos_version: <%= defined?(@centos_version) ? @centos_version : '' %>
 
 form:
   - bc_vnc_idle
   - desktop
+  - semester
+  - course
   - bc_vnc_resolution
   - bc_num_slots
   - node_type
