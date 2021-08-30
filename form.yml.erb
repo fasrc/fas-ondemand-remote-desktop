@@ -64,6 +64,18 @@ attributes:
     help: |
           **_Checking this box will create a desktop folder unique to this job_**
   centos_version: <%= defined?(@remote_desktop_version) ? @remote_desktop_version : '' %>
+  use_intel: <%= defined?(@use_intel) ? @use_intel : false %>
+  use_abaqus: <%= defined?(@use_abaqus) ? @use_abaqus : false %>
+  use_matlab: <%= defined?(@use_matlab) ? @use_matlab : false %>
+  use_comsol: <%= defined?(@use_comsol) ? @use_comsol : false %>
+  use_lumerical: <%= defined?(@use_lumerical) ? @use_lumerical : false %>
+  intel_version: <%= defined?(@intel_version) ? @intel_version : 'intel/21.2.0-fasrc01' %>
+  abaqus_version: <%= defined?(@abaqus_version) ? @abaqus_version : 'abaqus-2019.sqs' %>
+  matlab_version: <%= defined?(@matlab_version) ? @matlab_version : 'matlab/R2021a-fasrc01' %>
+  comsol_version: <%= defined?(@matlab_version) ? @comsol_version : 'comsol-teaching/5.6-fasrc01' %>
+  lumerical_version: <%= defined?(@lumerical_version) ? @lumerical_version : 'lumerical-teaching/2021R2_R2_7bf43e7149-fasrc01' %>
+  vscode_version: <%= defined?(@vscode_version) ? @vscode_version : 'vscode/1.49-fasrc01' %>
+  git_version: <%= defined?(@git_version) ? @git_version : 'git/2.17.0-fasrc01' %>
 
 form:
   - bc_vnc_idle
@@ -80,7 +92,19 @@ form:
   - custom_num_gpus
   - bc_num_hours
   - custom_time
-  - centos_version
   - custom_desktop
   - custom_reservation
   - bc_account
+  - centos_version
+  - use_intel
+  - use_abaqus
+  - use_matlab
+  - use_comsol
+  - use_lumerical
+  - intel_version
+  - abaqus_version
+  - matlab_version
+  - comsol_version
+  - lumerical_version
+  - vscode_version
+  - git_version

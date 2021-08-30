@@ -55,6 +55,12 @@ mkdir -p $COMSOL_WORKDIR
 module load  <%= context.comsol_version %>
 <%- end -%>
 
+<% if context.use_lumerical %>
+module load <%= context.lumerical_version %>
+<%- end -%>
+
+
+
 module load <%= context.git_version %>
 
 unset SLURM_GTIDS
