@@ -63,7 +63,7 @@ attributes:
     value: 1
     help: |
           **_Checking this box will create a desktop folder unique to this job_**
-  centos_version: <%= defined?(@centos_version) ? @centos_version : '' %>
+  centos_version: <%= defined?(@remote_desktop_version) ? @remote_desktop_version : '' %>
 
 form:
   - bc_vnc_idle
