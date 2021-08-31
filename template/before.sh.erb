@@ -334,7 +334,7 @@ mkdir -p $DESKTOP_FOLDER
 <%- end -%>
 
 
-<% if context.use_matlab %>
+<% if context.use_matlab.to_s.downcase == 'true' %>
 ## create icon for Matlab
 export matlab_icon=<%= session.staged_root.join("assets", "matlab.png") %>
 export matlab_script=<%= session.staged_root.join("scripts", "my_matlab.sh") %>
@@ -351,7 +351,7 @@ EOF
 chmod +x $DESKTOP_FOLDER/Matlab.desktop
 <%- end -%>
 
-<% if context.use_abaqus %>
+<% if context.use_abaqus.to_s.downcase == 'true' %>
 export SING_OVERLAYS=" --overlay /n/singularity_images/Academic-cluster/<%= context.semester %>/seas/abaqus/abaqus-2019.sqs " 
 ## create icon for Abaqus
 export abaqus_icon=<%= session.staged_root.join("assets", "abaqus.png") %>
@@ -369,7 +369,7 @@ EOF
 chmod +x $DESKTOP_FOLDER/Abaqus.desktop
 <%- end -%>
 
-<% if context.use_comsol %>
+<% if context.use_comsol.to_s.downcase == 'true' %>
 ## create icon for Comsol
 export comsol_icon=<%= session.staged_root.join("assets", "comsol.png") %>
 export comsol_script=<%= session.staged_root.join("scripts", "my_comsol.sh") %>
@@ -386,7 +386,7 @@ EOF
 chmod +x $DESKTOP_FOLDER/Comsol.desktop
 <%- end -%>
 
-<% if context.use_lumerical %>
+<% if context.use_lumerical.to_s.downcase == 'true' %>
 ## create icon for Lumerical
 export lumerical_icon=<%= session.staged_root.join("assets", "lumerical.png") %>
 export lumerical_script=<%= session.staged_root.join("scripts", "my_lumerical.sh") %>

@@ -3,7 +3,7 @@
 zenity --info --text  '<span foreground="red" font="18"><b><i>Abaqus</i></b> is starting up.\nPlease allow a minute to load.\nThank you for your patience</span>' --width=500 --height=200 &
 
 module purge
-<% if context.use_intel %>
+<% if context.use_intel.to_s.downcase == 'true' %>
 # ifort stuff ( module load ifort )
 module load <%= context.intel_version %>
 <%- end -%>
@@ -22,7 +22,7 @@ export PATH=/n/sw/abaqus-2019/SIMULIA/Isight/2019/linux_a64/code/command:$PATH
 export PATH=/n/sw/abaqus-2019/SIMULIA/fe-safe/2019/linux_a64/code/bin:$PATH
 export PATH=/n/sw/abaqus-2019/SIMULIA/fe-safe/2019/linux_a64/code/command:$PATH
 
-<% if context.use_matlab %>
+<% if context.use_matlab.to_s.downcase == 'true' %>
 module load <%= context.matlab_version %>
 export MTLB_WORKDIR=/scratch/$USER/$SLURM_JOBID
 mkdir -p $MTLB_WORKDIR

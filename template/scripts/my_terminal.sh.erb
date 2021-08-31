@@ -2,12 +2,12 @@
 
 module purge
 
-<% if context.use_intel %>
+<% if context.use_intel.to_s.downcase == 'true' %>
 # ifort stuff ( module load ifort )
 module load <%= context.intel_version %>
 <%- end -%>
 
-<% if context.use_abaqus %>
+<% if context.use_abaqus.to_s.downcase == 'true' %>
 # abaqus stuff
 export ABAQUS_HOME=/n/sw/abaqus-2019
 export PATH=/n/sw/abaqus-2019/SIMULIA/CAE/2019/linux_a64/code/bin:$PATH
@@ -23,7 +23,7 @@ export PATH=/n/sw/abaqus-2019/SIMULIA/fe-safe/2019/linux_a64/code/bin:$PATH
 export PATH=/n/sw/abaqus-2019/SIMULIA/fe-safe/2019/linux_a64/code/command:$PATH
 <%- end -%>
 
-<% if context.use_matlab %>
+<% if context.use_matlab.to_s.downcase == 'true' %>
 module load <%= context.matlab_version %>
 export MTLB_WORKDIR=/scratch/$USER/$SLURM_JOBID
 mkdir -p $MTLB_WORKDIR
@@ -32,7 +32,7 @@ mkdir -p $MATLAB_PREFDIR
 <%- end -%>
 
 
-<% if context.use_comsol %>
+<% if context.use_comsol.to_s.downcase == 'true' %>
 export MYSCRATCH=/n/holyscratch01/Academic-cluster/<%= context.semester %>/$(id -g -n)/SCRATCH/$USER
 if [ -d /n/holyscratch01/Academic-cluster/<%= context.semester %>/$(id -g -n)/SCRATCH/  ]; then        
   # create the folder if it does not exists
@@ -55,7 +55,7 @@ mkdir -p $COMSOL_WORKDIR
 module load  <%= context.comsol_version %>
 <%- end -%>
 
-<% if context.use_lumerical %>
+<% if context.use_lumerical.to_s.downcase == 'true' %>
 module load <%= context.lumerical_version %>
 <%- end -%>
 

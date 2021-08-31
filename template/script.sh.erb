@@ -12,7 +12,7 @@ export SINGULARITYENV_XDG_CONFIG_HOME=$XDG_CONFIG_HOME
 
 container_image=/n/singularity_images/Academic-cluster/<%= context.semester %>/<%= context.course %>/<%= context.centos_version %>
 
-<% if context.use_abaqus %>
+<% if context.use_abaqus.to_s.downcase == 'true' %>
 # we need to use contain to protect abaqus and use this to expose other software
 export SING_BINDS=" --contain -B /tmp -B /dev -B /scratch -B `dirname $HOME` -B /n/helmod/apps -B /n/helmod/modulefiles -B /n/sw/eb -B /n/sw/intel-cluster-studio-2017 -B /n/sw/intel-oneapi-2021  -B /n/sw/comsol56-teaching -B /n/sw/lumerical-2021R2-R2-7bf43e7149_teaching  -B /n/holyscratch01 "
 <%- end -%>
