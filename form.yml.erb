@@ -69,11 +69,13 @@ attributes:
   use_matlab: <%= defined?(@use_matlab) ? @use_matlab : false %>
   use_comsol: <%= defined?(@use_comsol) ? @use_comsol : false %>
   use_lumerical: <%= defined?(@use_lumerical) ? @use_lumerical : false %>
+  use_stata: <%= defined?(@use_stata) ? @use_stata : false %>
   intel_version: <%= defined?(@intel_version) ? @intel_version : 'intel/21.2.0-fasrc01' %>
   abaqus_version: <%= defined?(@abaqus_version) ? @abaqus_version : 'abaqus-2019.sqs' %>
   matlab_version: <%= defined?(@matlab_version) ? @matlab_version : 'matlab/R2021a-fasrc01' %>
   comsol_version: <%= defined?(@matlab_version) ? @comsol_version : 'comsol-teaching/5.6-fasrc01' %>
   lumerical_version: <%= defined?(@lumerical_version) ? @lumerical_version : 'lumerical-teaching/2021R2_R2_7bf43e7149-fasrc01' %>
+  stata_version: <%= defined?(@stata_version) ? @stata_version : 'stata/17.0-fasrc01' %>
   vscode_version: <%= defined?(@vscode_version) ? @vscode_version : 'vscode/1.49-fasrc01' %>
   git_version: <%= defined?(@git_version) ? @git_version : 'git/2.17.0-fasrc01' %>
 
@@ -101,10 +103,12 @@ form:
   - use_matlab
   - use_comsol
   - use_lumerical
+  - use_stata
   - intel_version
   - abaqus_version
   - matlab_version
   - comsol_version
   - lumerical_version
+  - stata_version
   - vscode_version
   - git_version
