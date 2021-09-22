@@ -1,77 +1,40 @@
 # Batch Connect - Desktop
 
-![GitHub Release](https://img.shields.io/github/release/osc/bc_desktop.svg)
-[![GitHub License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-
 A Batch Connect app designed to launch a GUI desktop within a batch job.
 
 ## Prerequisites
 
-This Batch Connect app requires the following software be installed on the
-**compute nodes** that the batch job is intended to run on (**NOT** the
-OnDemand node).
+This Batch Connect app runs a remote desktop session on a compute node from a singularity container 
+with the Xfce Desktop
 
-One of the following desktops:
-
-- [Xfce Desktop] 4+
-- [Mate Desktop] 1+ (*default*)
-- [Gnome Desktop] 2 (currently we do not support Gnome 3)
+The following nees to be installed on the compute nodes:
 
 For VNC server support:
 
 - [TurboVNC] 2.1+
 - [websockify] 0.8.0+
 
-For hardware rendering support:
-
-- [X server]
-- [VirtualGL] 2.3+
-
-[Xfce Desktop]: https://xfce.org/
-[Mate Desktop]: https://mate-desktop.org/
-[Gnome Desktop]: https://www.gnome.org/
-[TurboVNC]: http://www.turbovnc.org/
-[websockify]: https://github.com/novnc/websockify
-[X server]: https://www.x.org/
-[VirtualGL]: http://www.virtualgl.org/
-
 ## Install
 
-Use git to clone this app and checkout the desired branch/version you want to
-use:
+The master branch of this repository is used as template to generate customized version of the app for different academic courses on FAS-OnDemand.
+The actual apps deployed on the cluster are stored in [this repository](https://github.com/fasrc/fas-ondemand-remote-desktop-apps).
+
+If you want to deploy this repo in your user development environment to make modifications, follow these instructions. 
 
 ```sh
-scl enable git19 -- git clone <repo>
-cd <dir>
-scl enable git19 -- git checkout <tag/branch>
+# create the development folder if you still not have one
+mkdir -pv $HOME/.fasrc/dev/
+cd $HOME/.fasrc/dev/
+
+# clone the repository in a subfolder for your version of the app
+git clone https://github.com/fasrc/fas-ondemand-remote-desktop.git
+
+# Change the working directory to this new directory
+cd fas-ondemand-remote-desktop
 ```
-
-You will not need to do anything beyond this as all necessary assets are
-installed. You will also not need to restart this app as it isn't a Passenger
-app.
-
-To update the app you would:
-
-```sh
-cd <dir>
-scl enable git19 -- git fetch
-scl enable git19 -- git checkout <tag/branch>
-```
-
-Again, you do not need to restart the app as it isn't a Passenger app.
-
-## Configuration
-
-Please see the [Install Desktops] section in the [Open OnDemand Documentation]
-to learn more about setting up and configuring a desktop at your HPC center.
-
-[Install Desktops]: https://osc.github.io/ood-documentation/master/enable-desktops.html
-[Open OnDemand Documentation]: https://osc.github.io/ood-documentation/master/index.html
+You can now make your preferred modifications and run your version of the app from the sandbox control panel under the
+*dev* menu on the ondemand dashboard
 
 ## Contributing
 
-1. Fork it ( https://github.com/OSC/bc_desktop/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+If you intend deploy your modified version as system wide app, please commit your changes to a branch first, and open a PR.
